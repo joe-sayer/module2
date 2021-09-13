@@ -1,0 +1,73 @@
+<!-- Create an HTML page containing a Button. Add another Button with the words "Switch it" on it, which disables myButton when pressed and then enables it when pressed again. Clue - there is a .disabled property on a button!
+
+Create an HTML page which prints out the name of the key pressed (in the correct case) when a user types into a text box.
+
+Create an HTML page which changes from one image to another when the user hovers their mouse over the image.
+
+Create an HTML page which displays the current date when a button is clicked
+
+Create an HTML page which displays the URL of the current page when you click a button -->
+
+<html>
+  <head>
+    <style>
+      div {
+        margin-bottom: 50px;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <button id="myButton">My Button</button>
+      <button id="switch"><-- Switch it</button>
+    </div>
+    <div>
+      <input type="text" id="text-input" />
+    </div>
+    <div>
+      <img src="https://upload.wikimedia.org/wikipedia/en/f/f6/Tom_Tom_and_Jerry.png"/>
+    </div>
+    <div>
+      <button id="date-button">Current date</button>
+      <p id="date-display"></p>
+    </div>
+    <div>
+      <button id="url-button">URL</button>
+      <p id="url-display"></p>
+    </div>
+    <script>
+      // Create an HTML page containing a Button. Add another Button with the words "Switch it" on it, which disables myButton when pressed and then enables it when pressed again. Clue - there is a .disabled property on a button!
+      const myButton = document.querySelector('#myButton');
+      const switchButton = document.querySelector('#switch');
+      switchButton.addEventListener('click', () => {
+        myButton.disabled ? myButton.disabled = false  : myButton.disabled = true;
+      })
+
+      // Create an HTML page which prints out the name of the key pressed (in the correct case) when a user types into a text box.
+      const textInput = document.querySelector('#text-input');
+      textInput.addEventListener('input', (e) => {
+        console.log(e.data);
+      })
+
+      // Create an HTML page which changes from one image to another when the user hovers their mouse over the image.
+      const img = document.querySelector('img');
+      img.addEventListener('mouseover', () => {
+        img.src = "https://upload.wikimedia.org/wikipedia/en/2/2f/Jerry_Mouse.png";
+      })
+
+      // Create an HTML page which displays the current date when a button is clicked
+      const dateButton = document.querySelector('#date-button');
+      const dateDisplay = document.querySelector('#date-display');
+      dateButton.addEventListener('click', () => {
+        dateDisplay.innerHTML = new Date().toString();
+      })
+
+      // Create an HTML page which displays the URL of the current page when you click a button
+      const urlButton = document.querySelector('#url-button');
+      const urlDisplay = document.querySelector('#url-display');
+      urlButton.addEventListener('click', () => {
+        urlDisplay.innerHTML = window.location.href;
+      })
+    </script>
+  </body>
+</html>
